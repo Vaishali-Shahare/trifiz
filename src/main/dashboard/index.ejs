@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dashboard" ng-strict-di>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trifiz</title>
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+        <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+    <% if (htmlWebpackPlugin.options.customOptions &&
+        htmlWebpackPlugin.options.customOptions.DEV === true) { %>
+        <!--
+            In Dev mode, style loader adds CSS as Blob from JS bundle.
+            It causes that HTML shows without Styles.
+            To avoid showing HTML before CSS being loaded in DEV mode,
+            add a style
+        -->
+        <style>
+            html {
+                display: none;
+            }
+        </style>
+    <% } %>
+</head>
+<body>
+    <!--
+        moving the content to a different file since custom attrs and
+        custom elements are being filtered by StaticLandingServlet
+        for dashboard.html except ng-include
+    -->
+    <!--<div class="dashboard-layout" ng-include="'/layout/dashboardLayout.html'"></div>-->
+    <trifiz-dashboard></trifiz-dashboard>
+
+    <!--
+        otmJsContext's value is reassigned by the server
+    -->
+    <script>
+        var otmJsContext = '<json-snippet>';
+    </script>
+
+    <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+        <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+    <% } %>
+
+    <script>
+        if (typeof angular === 'undefined') {
+        	alert(
+        		'Trifiz works on modern web-browsers. Please verify your browser version'
+            );
+        }
+    </script>
+
+    <% if (htmlWebpackPlugin.options.customOptions &&
+        htmlWebpackPlugin.options.customOptions.DEV === true) { %>
+        <script>
+            setTimeout(function() {
+            	document.querySelector('html').style.display = 'block';
+            }, 1000);
+        </script>
+    <% } %>
+</body>
+</html>
