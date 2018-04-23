@@ -9,29 +9,29 @@ const etcFolderPath = path.join(rootPath, 'etc');
 const buildFolderPath = path.join(targetFolderPath, 'aim');
 
 function emptyBuildFolder() {
-	fse.emptyDir(targetFolderPath, err => {
-		if (err) {
-			return console.error(err);
-		}
-		console.log('Done emptyBuilderFolder..!!');
-		copyEtcFolderToBuildFolder();
-	});
+    fse.emptyDir(targetFolderPath, err => {
+        if (err) {
+            return console.error(err);
+        }
+        console.log('Done emptyBuilderFolder..!!');
+        copyEtcFolderToBuildFolder();
+    });
 }
 
 function copyEtcFolderToBuildFolder() {
-	const deployTo = process.env.Link;
-	console.log('Deployment Env is', deployTo);
+    const deployTo = process.env.Link;
+    console.log('Deployment Env is', deployTo);
 
-	if(deployTo !== 's11') {
-		return;
-	}
-	const copyToPath = path.join(buildFolderPath, 'etc');
-	fse.copy(etcFolderPath, copyToPath, err => {
-		if (err) {
-			console.error(err);
-		}
-		console.log('Done copyEtcFolderToBuildFolder..!!');
-	});
+    if (deployTo !== 's11') {
+        return;
+    }
+    const copyToPath = path.join(buildFolderPath, 'etc');
+    fse.copy(etcFolderPath, copyToPath, err => {
+        if (err) {
+            console.error(err);
+        }
+        console.log('Done copyEtcFolderToBuildFolder..!!');
+    });
 }
 
 emptyBuildFolder();

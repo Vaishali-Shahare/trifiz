@@ -73,14 +73,14 @@ function ProxyBuilder() {
         };
         const callbacks = opts.callbacks;
 
-        if(opts.cookie) {
+        if (opts.cookie) {
             defaultOpt.headers.cookie = opts.cookie;
         }
 
-        if(callbacks && callbacks.onProxyReq) {
+        if (callbacks && callbacks.onProxyReq) {
             defaultOpt.onProxyReq = callbacks.onProxyReq;
         }
-        if(callbacks && callbacks.onProxyRes) {
+        if (callbacks && callbacks.onProxyRes) {
             defaultOpt.onProxyRes = callbacks.onProxyRes;
         }
 

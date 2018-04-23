@@ -21,7 +21,7 @@ function otmContextInjector(isBuild) {
     };
 
     function injectContext(req, res, next, config, target) {
-        let otmContextJson = jSON.stringify(_createContext(config));
+        let otmContextJson = JSON.stringify(_createContext(config));
         if (isBuild) {
             fs
                 .createReadStream(paths.getBuildTargetPath(target))
