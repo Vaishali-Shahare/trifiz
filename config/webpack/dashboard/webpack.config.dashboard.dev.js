@@ -78,6 +78,10 @@ function webpackConfig(options) {
                     ],
                 },
                 {
+                    test: /^((?!\.module).)*less$/,
+                    loader: 'style!css!less',
+                },
+                {
                     test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
                     loader: 'url?limit=100000&name=/src/fonts/[name].[ext]',
                 },
@@ -88,7 +92,7 @@ function webpackConfig(options) {
                         {
                             loader: 'ngtemplate-loader',
                             options: {
-                                module: 'trifiz.layout',
+                                module: 'dashboard',
                                 relativeTo: 'partials',
                                 prefix: '/partials',
                             },
@@ -109,7 +113,7 @@ function webpackConfig(options) {
                         {
                             loader: 'ngtemplate-loader',
                             options: {
-                                module: 'trifiz.layout',
+                                module: 'dashboard',
                                 relativeTo: '[path]',
                                 prefix: '/layout',
                             },

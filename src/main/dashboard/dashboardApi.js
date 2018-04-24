@@ -1,7 +1,7 @@
 /*eslint angular/window-service:warn*/
 
-window.TRIFIZ = window.TRIFIZ || {};
-window.TRIFIZ.dashboard = {};
+window.TRIFIZ_JS_LIB = window.TRIFIZ_JS_LIB || {};
+window.TRIFIZ_JS_LIB.dashboard = {};
 
 const ExternalAppContext = {
     loadSearchView: false,
@@ -10,7 +10,7 @@ const ExternalAppContext = {
 };
 window.ExternalAppContext = ExternalAppContext;
 
-window.TRIFIZ_JS_LIB = window.TRIFIZ_JS_LIB || {};
+/*window.TRIFIZ_JS_LIB.dashboard = window.TRIFIZ_JS_LIB.dashboard || {};*/
 
 function isInsideWB() {
     return window.self !== window.top;

@@ -17,7 +17,7 @@ const otmContextInjector = require(paths.getServerFolderFilePath(
 
 const isBuild = argv.isBuild();
 const target = getTarget();
-const port = argv.getPort() || devServerConfig.port || 8091;
+const port = argv.getPort() || devServerConfig.port || 8085;
 let devMiddleware;
 let hotMiddleware;
 if (!isBuild) {

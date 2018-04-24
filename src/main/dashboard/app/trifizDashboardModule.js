@@ -1,7 +1,6 @@
-/*import './dashboardLayout.html';*/
-
 import angular from 'angular';
 
+import trifizCommonModule from '../../common/trifizCommonModule';
 import dashboardConfig from './dashboardConfig';
 import dashboardDirective from './dashboardDirective';
 
@@ -12,6 +11,7 @@ const trifizDashboardModule = angular.module('dashboard', [
     'angucomplete-alt',
     'dndLists',
     'angularFileUpload',
+    trifizCommonModule.name,
 ]);
 
 // eslint-disable-next-line angular/window-service

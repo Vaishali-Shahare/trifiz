@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    port: 8091,
+    port: 8085,
     apiProxies: {
         apiContexts: ['/trifiz-rest'],
         defaultProxy: 'trifiz',

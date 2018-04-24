@@ -1,9 +1,9 @@
 import angular from 'angular';
 
-import trifizLayoutModule from './trifizLayoutModule';
+import headerDirective from '../dashboard/app/directives/headerDirective';
 
-const trifizCommonModule = angular.module('trifiz.common', [
-    trifizLayoutModule.name,
-]);
+const trifizCommonModule = angular
+    .module('trifiz.common', [])
+    .directive(headerDirective.name, headerDirective.fn);
 
 export default trifizCommonModule;

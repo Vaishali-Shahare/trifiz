@@ -21,3 +21,4 @@ require('../../lib/angucomplete-alt');
 require('../../lib/angular-file-upload-html5-shim.min');
 require('../../lib/angular-file-upload.min');
 require('../../lib/angular-drag-and-drop-lists');
+require('less');
